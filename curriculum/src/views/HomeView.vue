@@ -21,7 +21,16 @@
         <section>
           <h2 class="cv-section-title">Perfil</h2>
           <p>
-            Soy un programador apasionado con experiencia en Vue, FastAPI, Docker, Django y más.
+            Soy un programador apasionado con experiencia en Vue, FastAPI, Docker, Django y más. Mi experiencia en este mundo comenzó en 2019 con el lenguaje C++, y con el tiempo he
+             ampliado mis habilidades para abarcar tanto el desarrollo frontend como backend. Me encanta crear soluciones eficientes, el trabajo en equipo, y siempre estoy buscando aprender nuevas 
+             tecnologías para mejorar mis habilidades y vivir de este mundo. A pesar de llevar un tiempo en el mundo la programación no he publicado todo mis trabajos y últimamente me he unido a varias 
+             comunidades para aprender y aportar lo que pueda a otros compañeros.
+             Y a pesar de mis estudios y trabajo me encuentro en la búsqueda constante de nuevos retos y oportunidades como Freelancer y trabajos remotos.
+             Más adelante verá información sobre lo que puedo aportar con mis conocimientos y experiencia que aún no puede conciderarse como la de un experto, aún me queda mucho que pulir.
+             <span style="color: goldenrod;">¡Gracias por visitar mi currículum!</span>
+             <section> Mi github: <a href="https://github.com/Ledihas" style="text-decoration-line: none"><strong>Ledihas</strong></a></section>
+             
+            
           </p>
         </section>
 
@@ -29,6 +38,16 @@
         <section>
           <h2 class="cv-section-title">Experiencia</h2>
           <div class="cv-job">
+            <h3>Automatizaciones - Personal</h3>
+            <span class="cv-dates">Reciente</span>
+            <ul>
+              <li>Workflows en n8n</li>
+              <li>Integración de WhatsApp con Evolution API</li>
+              <li>Integración con modelo GPT</li>
+              <li>Gestión de bases de datos Postgres</li>
+              <li>CRM</li>
+            </ul>
+
             <h3>Backend Developer - Cliente X</h3>
             <span class="cv-dates">2025 - 2025</span>
             <ul>
@@ -37,6 +56,16 @@
               <li>Despliegue en servidores Linux con Docker y NGINX</li>
               <li>Gestión de bases de datos Postgres</li>
             </ul>
+
+             <h3>Front-end Developer - Empresa</h3>
+            <span class="cv-dates">Actual</span>
+            <ul>
+              <li>Desarrollo del Front-end con Qt</li>
+              <li>Aplicación para edición de videos</li>
+              <li>En desarrollo...</li>
+
+            </ul>
+
           </div>
         </section>
 
@@ -71,6 +100,12 @@
             <li>Refine Dev</li>
             <li>N8N</li>
             <li>EvolutionAPI</li>
+            <li>App Write</li>
+            <li>Render</li>
+            <li>Digital Ocean</li>
+            <li>Herramientas de IA</li>
+            <li> Postman</li>
+            <li> </li>
           </ul>
         </section>
 
@@ -96,7 +131,7 @@
     </transition>
     <!-- Footer -->
     <footer class="cv-footer">
-      <p>📧 ledhas@gmail.com | 📱 +53 53761053</p>
+      <p>📧 chuchua441@gmail.com | 📱 +53 53761053</p>
       <p>© 2025 Ledihas</p>
     </footer>
   </div>

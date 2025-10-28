@@ -8,10 +8,12 @@
       <p class="project-tech">
         <strong>Tecnologías:</strong> {{ project.technologies.join(', ') }}
       </p>
+      
       <div class="project-stats">
         <span>⭐ {{ project.stars }}</span>
         <span>👁️ {{ project.views }}</span>
         <span>🖥️ {{ project.languages.length }} lenguajes</span>
+        <p style="color: goldenrod;"> {{ project.languages.join(', ') }} </p>
       </div>
       <a v-if="project.link" :href="project.link" target="_blank" class="project-link">
         🔗 Ver proyecto
@@ -53,7 +55,7 @@ export default {
           link: 'https://yeyitasbarm.onrender.com',
           stars: 4,
           views: 6,
-          languages: ['Python', 'Django', 'PostgreSQL'],
+          languages: ['Python', 'PostgreSQL', 'HTML', 'CSS', 'JavaScript'],
         },
         {
           name: 'CRM en Flutter + FastAPI con bot para Whatsapp',
@@ -72,7 +74,7 @@ export default {
           link: null,
           stars: 3,
           views: 5,
-          languages: ['Python', 'Flutter', 'FastAPI'],
+          languages: ['Python', 'Dart'],
         },
         {
           name: 'Sistema de reconocimiento con TensorFlow',
@@ -81,8 +83,17 @@ export default {
           link: null,
           stars: 2,
           views: 4,
-          languages: ['Python', 'TensorFlow'],
+          languages: ['Python'],
         },
+        {
+          name: 'Whatsapp automaton project',
+          description: 'Sistema que permite el envío de diversos mensajes de forma masiva por WhatsApp.(Aún en desarrollo)',
+          technologies: ['Refine Dev, AppWrite, PostgreSQL, N8N, Docker, EvolutionAPI, GPT-4(En desarrollo)'],
+          link: 'http://45.61.157.201/',
+          stars: 0,
+          views: 1,
+          languages: ['TypeScript', 'JavaScript', 'PostgreSQL', 'HTML', 'CSS'],
+        }
       ],
       target: '.project-desc',
     }
@@ -165,6 +176,11 @@ export default {
   font-size: 14px;
   color: #4dabf7;
   text-decoration: none;
+
+}
+.project-langs{
+  font-size: 14px;
+  color: #bbb;
 }
 
 .project-link:hover {
