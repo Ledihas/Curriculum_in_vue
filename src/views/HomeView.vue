@@ -28,10 +28,9 @@
              Y a pesar de mis estudios y trabajo me encuentro en la búsqueda constante de nuevos retos y oportunidades como Freelancer y trabajos remotos.
              Más adelante verá información sobre lo que puedo aportar con mis conocimientos y experiencia que aún no puede conciderarse como la de un experto, aún me queda mucho que pulir.
              <span style="color: goldenrod;">¡Gracias por visitar mi currículum!</span>
-             <section> Mi github: <a href="https://github.com/Ledihas" style="text-decoration-line: none"><strong>Ledihas</strong></a></section>
-             
-            
           </p>
+           <text> Mi github: <a href="https://github.com/Ledihas" style="text-decoration-line: none"><strong>Ledihas</strong></a></text>
+             
         </section>
 
         <!-- Experiencia -->
