@@ -1,3 +1,15 @@
-<template style="background-color: white">
-  <router-view />
+<template>
+  <ErrorBoundary>
+    <router-view />
+  </ErrorBoundary>
 </template>
+
+<script>
+import ErrorBoundary from './components/ErrorBoundary.vue'
+
+export default {
+  components: {
+    ErrorBoundary,
+  },
+}
+</script>

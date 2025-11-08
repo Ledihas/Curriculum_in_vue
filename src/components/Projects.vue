@@ -1,121 +1,64 @@
 <template>
   <section class="projects">
-    <h2 class="section-title">Proyectos</h2>
+    <h2 class="section-title">{{ $t('projects.title') }}</h2>
 
-    <div class="project" v-for="(project, index) in projects" :key="index">
+    <div class="project" v-for="(project, index) in currentProjects" :key="index">
       <h3>{{ project.name }}</h3>
       <p class="project-desc">{{ project.description }}</p>
       <p class="project-tech">
-        <strong>Tecnologías:</strong> {{ project.technologies.join(', ') }}
+        <strong>{{ $t('projects.technologies') }}</strong> {{ project.technologies.join(', ') }}
       </p>
-      
+
       <div class="project-stats">
-        <span>⭐ {{ project.stars }}</span>
-        <span>👁️ {{ project.views }}</span>
-        <span>🖥️ {{ project.languages.length }} lenguajes</span>
-        <p style="color: goldenrod;"> {{ project.languages.join(', ') }} </p>
+        <span :aria-label="`${project.stars} stars`">⭐ {{ project.stars }}</span>
+        <span :aria-label="`${project.views} views`">👁️ {{ project.views }}</span>
+        <span :aria-label="`${project.languages.length} ${$t('projects.languages')}`">
+          🖥️ {{ project.languages.length }} {{ $t('projects.languages') }}
+        </span>
+        <p style="color: goldenrod">{{ project.languages.join(', ') }}</p>
       </div>
-      <a v-if="project.link" :href="project.link" target="_blank" class="project-link">
-        🔗 Ver proyecto
+      <a
+        v-if="project.link"
+        :href="project.link"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project-link"
+        :aria-label="`${$t('projects.viewProject')} ${project.name}`"
+        tabindex="0"
+      >
+        🔗 {{ $t('projects.viewProject') }}
       </a>
+      <span v-else class="project-no-link">{{
+        currentLocale === 'es' ? 'Proyecto privado' : 'Private project'
+      }}</span>
     </div>
-    <ProjectStatsChart :projects="projects" />
+    <ProjectStatsChart :projects="currentProjects" />
   </section>
 </template>
 
 <script>
 import ProjectStatsChart from './ProjectStatsChart.vue'
-
-import { animate } from 'animejs/animation'
+import { projectsData } from '@/i18n/projects'
+import { useI18n } from 'vue-i18n'
+import { computed } from 'vue'
 
 export default {
   name: 'ProjectsSection',
   components: { ProjectStatsChart },
-  data() {
-    return {
-      anim: {
-        translateX: 100,
-        scale: 2,
-        opacity: 0.5,
-        duration: 400,
-        delay: 250,
-        ease: 'out(3)',
-        loop: 3,
-        alternate: true,
-        autoplay: false,
-        onBegin: () => {},
-        onLoop: () => {},
-        onUpdate: () => {},
-      },
-      projects: [
-        {
-          name: 'Yeyitas - Sitio web de un bar',
-          description: 'Sitio web para un bar local con menús, eventos y reservas.',
-          technologies: ['Django, Django REST Framework, PostgreSQL, Render'],
-          link: 'https://yeyitasbarm.onrender.com',
-          stars: 4,
-          views: 6,
-          languages: ['Python', 'PostgreSQL', 'HTML', 'CSS', 'JavaScript'],
-        },
-        {
-          name: 'CRM en Flutter + FastAPI con bot para Whatsapp',
-          description:
-            'Plataforma de gestión de clientes con backend en Python(FastAPI) y frontend en Flutter.',
-          technologies: [
-            'Flutter',
-            'FastAPI',
-            'Postgres',
-            'NGINX',
-            'EvolutionAPI',
-            'n8n',
-            'Docker',
-            'Servidor(Ubuntu)',
-          ],
-          link: null,
-          stars: 3,
-          views: 5,
-          languages: ['Python', 'Dart'],
-        },
-        {
-          name: 'Sistema de reconocimiento con TensorFlow',
-          description: 'Modelo de machine learning para clasificación de imágenes sencillo.',
-          technologies: ['TensorFlow', 'Python', 'Flask'],
-          link: null,
-          stars: 2,
-          views: 4,
-          languages: ['Python'],
-        },
-        {
-          name: 'Whatsapp automaton project',
-          description: 'Sistema que permite el envío de diversos mensajes de forma masiva por WhatsApp.(Aún en desarrollo)',
-          technologies: ['Refine Dev, AppWrite, PostgreSQL, N8N, Docker, EvolutionAPI, GPT-4(En desarrollo)'],
-          link: 'http://45.61.157.201/',
-          stars: 0,
-          views: 1,
-          languages: ['TypeScript', 'JavaScript', 'PostgreSQL', 'HTML', 'CSS'],
-        }
-      ],
-      target: '.project-desc',
-    }
-  },
+  setup() {
+    const { locale, t } = useI18n()
 
-  methods: {
-    animateDesc() {
-      animate(this.target, {
-        translateX: 100,
-        scale: 2,
-        opacity: 0.5,
-        duration: 400,
-        delay: 250,
-        ease: 'out(3)',
-        loop: 3,
-        alternate: true,
-        autoplay: false,
-        onBegin: () => {},
-        onLoop: () => {},
-        onUpdate: () => {},
-      })
-    },
+    const currentProjects = computed(() => {
+      return projectsData[locale.value] || projectsData.es
+    })
+
+    const currentLocale = computed(() => locale.value)
+
+    return {
+      currentProjects,
+      currentLocale,
+      t,
+    }
   },
 }
 </script>
@@ -124,66 +67,88 @@ export default {
 .projects {
   margin-top: 30px;
 }
+
 .project-stats {
   margin-top: 10px;
   font-size: 14px;
-  color: #ccc;
+  color: #E0E0E0;
   display: flex;
   gap: 15px;
+  flex-wrap: wrap;
 }
+
+.project-stats p {
+  color: #C9A882;
+}
+
 .project-stats span {
-  background: #1e1806;
+  background: rgba(61, 42, 26, 0.7);
   padding: 5px 10px;
   border-radius: 6px;
-  border: 1px solid #444;
+  border: 1px solid #A16C43;
 }
 
 .section-title {
   font-size: 22px;
   margin-bottom: 15px;
-  border-bottom: 1px solid #666;
+  border-bottom: 1px solid #A16C43;
   padding-bottom: 5px;
-  color: #ffd700;
+  color: #D4B896;
 }
 
 .project {
   margin-bottom: 20px;
   padding: 15px;
-  border: 1px solid #555;
+  border: 1px solid #A16C43;
   border-radius: 8px;
-  background: #2a2106;
+  background: rgba(83, 58, 38, 0.6);
+  transition: all 0.3s ease;
+}
+
+.project:hover {
+  background: rgba(83, 58, 38, 0.8);
+  border-color: #C9A882;
+  box-shadow: 0 4px 12px rgba(201, 168, 130, 0.3);
 }
 
 .project h3 {
   margin: 0 0 5px 0;
   font-size: 20px;
-  color: #fff;
+  color: #E8D4C0;
 }
 
 .project-desc {
   margin: 5px 0;
-  color: #ddd;
+  color: #E0E0E0;
 }
 
 .project-tech {
   font-size: 14px;
-  color: #bbb;
+  color: #C9A882;
 }
 
 .project-link {
   display: inline-block;
   margin-top: 8px;
   font-size: 14px;
-  color: #4dabf7;
+  color: #C9A882;
   text-decoration: none;
-
-}
-.project-langs{
-  font-size: 14px;
-  color: #bbb;
+  transition: all 0.3s ease;
 }
 
-.project-link:hover {
+.project-link:hover,
+.project-link:focus {
   text-decoration: underline;
+  color: #D4B896;
+  outline: 2px solid #C9A882;
+  outline-offset: 2px;
+}
+
+.project-no-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #A16C43;
+  font-style: italic;
 }
 </style>

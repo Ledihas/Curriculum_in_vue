@@ -1,44 +1,86 @@
-# curriculum
+# Portafolio de Zahidel Pedroso
 
-This template should help get you started developing with Vue 3 in Vite.
+Portafolio profesional y currículum interactivo desarrollado con Vue.js 3, con soporte multiidioma (Español/Inglés) y funcionalidad de exportación a PDF.
 
-## Recommended IDE Setup
+## 🚀 Características
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- ✨ Diseño moderno y profesional
+- 🌍 Soporte multiidioma (Español/Inglés)
+- 📄 Exportación a PDF del currículum
+- ♿ Accesibilidad mejorada (navegación por teclado, ARIA labels)
+- 📱 Diseño responsive
+- 🎨 Animaciones suaves con Velocity.js
+- 📊 Visualización de proyectos con gráficos
+- 🛡️ Manejo de errores robusto
+- ⌨️ Navegación completa por teclado
 
-## Recommended Browser Setup
+## 🛠️ Tecnologías Utilizadas
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+- **Vue.js 3** - Framework principal
+- **Vue Router** - Navegación
+- **Vue I18n** - Internacionalización
+- **html2pdf.js** - Generación de PDF
+- **Chart.js** - Gráficos de proyectos
+- **Velocity.js** - Animaciones
+- **Vite** - Build tool
+- **Tailwind CSS** - Estilos (configurado)
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+## 📦 Instalación
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+## 🚀 Desarrollo
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+## 🏗️ Compilar para Producción
 
 ```sh
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## 🧹 Linting
 
 ```sh
 npm run lint
 ```
+
+## 📝 Estructura del Proyecto
+
+```
+src/
+├── components/       # Componentes reutilizables
+│   ├── ErrorBoundary.vue
+│   ├── Projects.vue
+│   └── ProjectStatsChart.vue
+├── views/           # Vistas principales
+│   ├── HomeView.vue
+│   └── ProjectsView.vue
+├── i18n/            # Traducciones
+│   ├── index.js
+│   └── projects.js
+├── router/          # Configuración de rutas
+└── assets/          # Recursos estáticos
+```
+
+## 🌐 Características de Accesibilidad
+
+- Navegación completa por teclado
+- ARIA labels en elementos interactivos
+- Contraste de colores adecuado
+- Alt text en imágenes
+- Soporte para lectores de pantalla
+
+## 📧 Contacto
+
+- **Email:** chuchua441@gmail.com
+- **Teléfono:** +53 53761053
+- **GitHub:** [Ledihas](https://github.com/Ledihas)
+
+## 📄 Licencia
+
+© 2025 Zahidel Pedroso (Ledihas)
