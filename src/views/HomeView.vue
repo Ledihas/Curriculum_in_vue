@@ -320,6 +320,7 @@ export default {
           { name: 'Tailwind CSS', level: 85 },
           { name: 'Flutter', level: 75 },
           { name: 'Qt Creator', level: 70 },
+          { name: 'Netlify', level: 90}
         ],
         backend: [
           { name: 'FastAPI', level: 90 },
@@ -350,6 +351,8 @@ export default {
           { name: 'TensorFlow', level: 70 },
           { name: 'Refine Dev', level: 75 },
           { name: 'AppWrite', level: 80 },
+          { name: 'Notion', level: 50},
+          { name: 'Chatwoot',level: 80}
         ],
       },
       programmingLanguages: [
@@ -751,8 +754,9 @@ export default {
 }
 
 .soft-skill-icon {
-  font-size: 32px;
-  filter: drop-shadow(0 0 8px rgba(201, 168, 130, 0.5));
+  font-size: 22px;
+  filter: drop-shadow(0 0 8px rgba(201, 168, 130, 0.1));
+  
 }
 
 .soft-skill-text {

@@ -79,7 +79,7 @@ const messages = {
     },
     workPreferences: {
       title: 'Preferencias de Trabajo',
-      remote: 'Trabajo Remoto',
+      remote: 'Trabajo Remoto con hoario flexible',
       freelance: 'Proyectos Freelance',
       fullTime: 'Tiempo Completo',
       availability: 'Disponibilidad inmediata',
