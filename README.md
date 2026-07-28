@@ -1,4 +1,4 @@
-# Portafolio de Zahidel Pedroso
+# Portafolio de Ledihas
 
 Portafolio profesional y currículum interactivo desarrollado con Vue.js 3, con soporte multiidioma (Español/Inglés) y funcionalidad de exportación a PDF.
 
@@ -83,4 +83,4 @@ src/
 
 ## 📄 Licencia
 
-© 2025 Zahidel Pedroso (Ledihas)
+© 2025 Ledihas (Ledihas)

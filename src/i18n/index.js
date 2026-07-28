@@ -8,14 +8,14 @@ const messages = {
       downloadPDF: 'Descargar PDF',
     },
     header: {
-      name: 'Zahidel Pedroso',
+      name: 'Ledihas',
       role: 'Desarrollador Fullstack',
       clickForMore: 'Haz clic para más información',
     },
     profile: {
       title: 'Perfil',
       description:
-        'Soy un programador apasionado con experiencia en Vue, FastAPI, Docker, Django y más. Mi experiencia en este mundo comenzó en 2019 con el lenguaje C++, y con el tiempo he ampliado mis habilidades para abarcar tanto el desarrollo frontend como backend. Me encanta crear soluciones eficientes, el trabajo en equipo, y siempre estoy buscando aprender nuevas tecnologías para mejorar mis habilidades.',
+        'Soy un programador apasionado con experiencia en Vue, FastAPI, Docker, Django, n8n,Java y más. Mi experiencia en este mundo comenzó en 2019 con el lenguaje C++, luego Java y con el tiempo he ampliado mis habilidades para abarcar el desarrollo Web, el Desktop, Low-Code y automatizaciones; practicando y formándome constantemente según los campos que me sean de interés o utilidad. Adicto a crear soluciones eficientes, el trabajo en equipo, y siempre estar buscando aprender nuevas tecnologías y técnicas para mejorar mis habilidades.',
       lookingFor: 'Actualmente busco oportunidades de trabajo remoto y proyectos freelance.',
       thanks: '¡Gracias por visitar mi currículum!',
       github: 'Mi GitHub:',
@@ -23,14 +23,16 @@ const messages = {
     experience: {
       title: 'Experiencia',
       automation: {
-        title: 'Automatizaciones - Personal',
+        title: 'Automatizaciones - Personal y Clientes',
         date: 'Reciente',
         items: [
           'Workflows en n8n',
           'Integración de WhatsApp con Evolution API',
-          'Integración con modelo GPT',
+          'Integración con modelos de IA',
           'Gestión de bases de datos Postgres',
           'CRM',
+          'Integración con Catwoot',
+          'Bots',
         ],
       },
       backend: {
@@ -45,11 +47,12 @@ const messages = {
       },
       frontend: {
         title: 'Front-end Developer - Empresa',
-        date: 'Actual',
+        date: '2025 - 2026',
         items: [
           'Desarrollo del Front-end con Qt',
-          'Aplicación para edición de videos',
-          'En desarrollo...',
+          'Aplicación para edición de videos e imágenes',
+          'Aplicación Qt QUick',
+          'Integración de modelo de Ml a UI de Qt',
         ],
       },
     },
@@ -57,7 +60,7 @@ const messages = {
       title: 'Educación',
       degree: 'Ingeniería en Ciencias Informáticas',
       institution: 'Universidad de Ciencias Informáticas',
-      period: '2021 - actualidad',
+      period: '2022 - 2026',
     },
     skills: {
       title: 'Habilidades Técnicas',
@@ -79,7 +82,7 @@ const messages = {
     },
     workPreferences: {
       title: 'Preferencias de Trabajo',
-      remote: 'Trabajo Remoto con hoario flexible',
+      remote: 'Trabajo Remoto',
       freelance: 'Proyectos Freelance',
       fullTime: 'Tiempo Completo',
       availability: 'Disponibilidad inmediata',
@@ -94,7 +97,7 @@ const messages = {
       someProjects: 'Algunos Proyectos',
     },
     footer: {
-      rights: '© 2025 Ledihas',
+      rights: '© 2026 Ledihas',
     },
   },
   en: {
@@ -104,7 +107,7 @@ const messages = {
       downloadPDF: 'Download PDF',
     },
     header: {
-      name: 'Zahidel Pedroso',
+      name: 'Ledihas',
       role: 'Fullstack Developer',
       clickForMore: 'Click for more information',
     },
