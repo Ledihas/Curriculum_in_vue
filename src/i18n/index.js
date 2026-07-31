@@ -89,7 +89,7 @@ const messages = {
     },
     projects: {
       title: 'Proyectos',
-      viewProjects: 'Ver Proyectos',
+      viewProjects: 'Ver Algunos Proyectos',
       backToCV: 'Volver al CV',
       viewProject: 'Ver proyecto',
       technologies: 'Tecnologías:',
@@ -185,7 +185,7 @@ const messages = {
     },
     projects: {
       title: 'Projects',
-      viewProjects: 'View Projects',
+      viewProjects: 'View  Some Projects',
       backToCV: 'Back to CV',
       viewProject: 'View project',
       technologies: 'Technologies:',

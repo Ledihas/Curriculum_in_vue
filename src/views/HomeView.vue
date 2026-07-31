@@ -68,6 +68,15 @@
         <!-- Experiencia -->
         <section>
           <h2 class="cv-section-title">{{ $t('experience.title') }}</h2>
+          <!-- Proyectos -->
+        <button
+          class="button-projects"
+          @click="scrollToProjects"
+          tabindex="0"
+          @keypress.enter="scrollToProjects"
+        >
+          {{ $t('projects.viewProjects') }}
+        </button>
           <div class="cv-job">
             <h3>{{ $t('experience.automation.title') }}</h3>
             <span class="cv-dates">{{ $t('experience.automation.date') }}</span>
@@ -278,16 +287,6 @@
             </div>
           </div>
         </section>
-
-        <!-- Proyectos -->
-        <button
-          class="button-projects"
-          @click="scrollToProjects"
-          tabindex="0"
-          @keypress.enter="scrollToProjects"
-        >
-          {{ $t('projects.viewProjects') }}
-        </button>
       </main>
     </transition>
 
