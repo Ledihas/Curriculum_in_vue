@@ -342,22 +342,24 @@ export default {
           { name: 'Git', level: 90 },
           { name: 'Digital Ocean', level: 75 },
           { name: 'Render', level: 80 },
+          { name: 'Cloudfare Pages', level: 50}
         ],
         tools: [
-          { name: 'N8N', level: 85 },
+          { name: 'N8N', level: 90 },
           { name: 'Evolution API', level: 90 },
           { name: 'Postman', level: 90 },
           { name: 'TensorFlow', level: 70 },
           { name: 'Refine Dev', level: 75 },
           { name: 'AppWrite', level: 80 },
           { name: 'Notion', level: 50},
-          { name: 'Chatwoot',level: 80}
+          { name: 'Chatwoot',level: 80},
+          { name: 'Supabase', level: 85}
         ],
       },
       programmingLanguages: [
         { name: 'Python', level: 95 },
         { name: 'JavaScript', level: 90 },
-        { name: 'TypeScript', level: 85 },
+        { name: 'TypeScript', level: 90 },
         { name: 'Dart', level: 75 },
         { name: 'C++', level: 70 },
         { name: 'Java', level: 65 },
