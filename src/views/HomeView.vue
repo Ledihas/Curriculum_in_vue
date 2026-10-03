@@ -1,5 +1,5 @@
 <template>
-  <div class="cv-container" id="cv-content">
+  <div id="cv-content" class="cv-container" :class="{ 'pdf-export': isExportingPdf }">
     <!-- Language Switcher -->
     <div class="language-switcher">
       <button
@@ -55,12 +55,12 @@
           </p>
           <p>{{ $t('profile.lookingFor') }}</p>
           <p>
-            <span style="color: goldenrod">{{ $t('profile.thanks') }}</span>
+            <span class="thank-you-text">{{ $t('profile.thanks') }}</span>
           </p>
           <p>
             {{ $t('profile.github') }}
-            <a href="https://github.com/Ledihas" style="text-decoration-line: none" target="_blank" rel="noopener noreferrer">
-              <strong style="color: #87CEFA">Ledihas</strong>
+            <a href="https://github.com/Ledihas" class="github-link" target="_blank" rel="noopener noreferrer">
+              <strong class="github-name">Ledihas</strong>
             </a>
           </p>
         </section>
@@ -292,7 +292,7 @@
 
     <!-- Footer -->
     <footer class="cv-footer">
-      <p>📧 chuchua441@gmail.com | 📱 +53 53761053</p>
+      <p>📧 zazapincha@gmail.com | 📱 +53 58210412</p>
       <p>{{ $t('footer.rights') }}</p>
     </footer>
   </div>
@@ -311,6 +311,7 @@ export default {
   data() {
     return {
       show: false,
+      isExportingPdf: false,
       skillsByCategory: {
         frontend: [
           { name: 'Vue.js', level: 90 },
@@ -351,9 +352,17 @@ export default {
           { name: 'TensorFlow', level: 70 },
           { name: 'Refine Dev', level: 75 },
           { name: 'AppWrite', level: 80 },
-          { name: 'Notion', level: 50},
-          { name: 'Chatwoot',level: 80},
-          { name: 'Supabase', level: 85}
+          { name: 'Notion', level: 50 },
+          { name: 'Chatwoot', level: 80 },
+          { name: 'Supabase', level: 85 },
+          { name: 'GitHub Copilot', level: 80 },
+          { name: 'Cursor', level: 75 },
+          { name: 'Claude / LLMs', level: 78 },
+          { name: 'OpenAI API', level: 80 },
+          { name: 'Prompt Engineering', level: 85 },
+          { name: 'Agent Instructions', level: 85 },
+          { name: 'Vibe Coding', level: 90 },
+          { name: 'AI Workflow Design', level: 82 }
         ],
       },
       programmingLanguages: [
@@ -382,31 +391,32 @@ export default {
       document.documentElement.lang = lang
     },
     async downloadPDF() {
+      const wasShown = this.show
+
       try {
         const element = document.getElementById('cv-content')
         const opt = {
-          margin: 10,
+          margin: 8,
           filename: 'Ledihas_CV.pdf',
           image: { type: 'jpeg', quality: 0.98 },
-          html2canvas: { scale: 2, useCORS: true },
+          html2canvas: { scale: 2, useCORS: true, backgroundColor: '#141518' },
           jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+          pagebreak: { mode: ['css', 'legacy'] },
         }
 
-        // Mostrar contenido antes de generar PDF
-        const wasShown = this.show
         this.show = true
+        this.isExportingPdf = true
 
-        // Esperar a que se renderice
         await this.$nextTick()
         await new Promise((resolve) => setTimeout(resolve, 500))
 
         await html2pdf().set(opt).from(element).save()
-
-        // Restaurar estado
-        this.show = wasShown
       } catch (error) {
         console.error('Error al generar PDF:', error)
         alert('Hubo un error al generar el PDF. Por favor, intenta de nuevo.')
+      } finally {
+        this.isExportingPdf = false
+        this.show = wasShown
       }
     },
     scrollToProjects() {
@@ -450,13 +460,13 @@ export default {
 
 <style scoped>
 .cv-container {
-  width: 70vw;
-  max-width: 1200px;
-  min-height: 100vh;
-  margin: 40px auto;
-  padding: 40px;
-  background: linear-gradient(135deg, #3d2a1a 0%, #1a1410 100%);
-  border: 1px solid #A16C43;
+  width: min(96vw, 1680px);
+  max-width: none;
+  min-height: calc(100vh - 32px);
+  margin: 16px auto;
+  padding: clamp(24px, 3vw, 48px);
+  background: linear-gradient(135deg, rgba(20, 21, 24, 0.98) 0%, rgba(27, 24, 20, 0.96) 100%);
+  border: 1px solid rgba(201, 168, 130, 0.25);
   border-radius: 16px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
@@ -465,7 +475,27 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  box-shadow: 0 10px 40px rgba(23, 17, 14, 0.9);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.28);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.cv-container.pdf-export {
+  width: 194mm;
+  min-height: 0;
+  margin: 0;
+  padding: 8mm;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.pdf-export .language-switcher,
+.pdf-export .button-projects {
+  display: none !important;
+}
+
+.pdf-export .cv-header {
+  margin-top: 0;
 }
 
 .language-switcher {
@@ -479,41 +509,42 @@ export default {
 
 .lang-btn,
 .download-btn {
-  background: rgba(83, 58, 38, 0.8);
+  background: rgba(255, 255, 255, 0.02);
   color: #E8D4C0;
-  border: 1px solid #8B6648;
+  border: 1px solid rgba(201, 168, 130, 0.35);
   padding: 8px 15px;
-  border-radius: 5px;
+  border-radius: 999px;
   cursor: pointer;
   font-size: 14px;
-  transition: all 0.3s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
 
 .lang-btn:hover,
 .download-btn:hover,
 .lang-btn:focus,
 .download-btn:focus {
-  background: rgba(83, 58, 38, 1);
-  transform: scale(1.05);
-  outline: 2px solid #C9A882;
-  border-color: #C9A882;
+  background: rgba(201, 168, 130, 0.08);
+  transform: translateY(-1px);
+  outline: none;
+  border-color: rgba(201, 168, 130, 0.85);
+  box-shadow: 0 8px 22px rgba(201, 168, 130, 0.12);
 }
 
 .lang-btn.active {
-  background: #C9A882;
-  color: #1a1410;
+  background: rgba(201, 168, 130, 0.16);
+  color: #f8e5d1;
   font-weight: bold;
-  border-color: #C9A882;
+  border-color: rgba(201, 168, 130, 0.9);
 }
 
 .download-btn {
-  background: rgba(139, 102, 72, 0.8);
-  border-color: #A16C43;
+  background: rgba(201, 168, 130, 0.08);
+  border-color: rgba(201, 168, 130, 0.45);
 }
 
 .download-btn:hover {
-  background: rgba(161, 108, 67, 0.9);
-  border-color: #C9A882;
+  background: rgba(201, 168, 130, 0.14);
+  border-color: rgba(201, 168, 130, 0.9);
 }
 
 .cv-header {
@@ -522,13 +553,14 @@ export default {
   justify-content: center;
   gap: 20px;
   text-align: center;
-  border-bottom: 2px solid #C9A882;
+  border-bottom: 1px solid rgba(201, 168, 130, 0.35);
   padding-bottom: 20px;
   margin-bottom: 30px;
   margin-top: 40px;
-  background: rgba(83, 58, 38, 0.4);
+  background: rgba(255, 255, 255, 0.015);
   padding: 20px;
   border-radius: 12px;
+  backdrop-filter: blur(2px);
 }
 
 .cv-name {
@@ -628,17 +660,18 @@ export default {
 /* Skill Categories */
 .skill-category {
   margin-bottom: 30px;
-  background: rgba(83, 58, 38, 0.6);
+  background: rgba(255, 255, 255, 0.012);
   padding: 20px;
   border-radius: 10px;
-  border: 1px solid #A16C43;
-  transition: all 0.3s ease;
+  border: 1px solid rgba(201, 168, 130, 0.2);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .skill-category:hover {
-  border-color: #C9A882;
-  box-shadow: 0 0 15px rgba(201, 168, 130, 0.4);
-  background: rgba(83, 58, 38, 0.8);
+  border-color: rgba(201, 168, 130, 0.7);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.018);
+  transform: translateY(-2px);
 }
 
 .skill-category-title {
@@ -662,18 +695,18 @@ export default {
 }
 
 .skill-item {
-  background: rgba(61, 42, 26, 0.7);
+  background: rgba(255, 255, 255, 0.02);
   padding: 12px;
   border-radius: 8px;
-  border: 1px solid #8B6648;
-  transition: all 0.3s ease;
+  border: 1px solid rgba(201, 168, 130, 0.2);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .skill-item:hover {
-  border-color: #C9A882;
+  border-color: rgba(201, 168, 130, 0.7);
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(23, 17, 14, 0.6);
-  background: rgba(61, 42, 26, 0.9);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .skill-header {
@@ -734,30 +767,30 @@ export default {
 }
 
 .soft-skill-card {
-  background: linear-gradient(135deg, rgba(83, 58, 38, 0.7) 0%, rgba(61, 42, 26, 0.8) 100%);
+  background: rgba(255, 255, 255, 0.015);
   padding: 20px;
   border-radius: 10px;
-  border: 1px solid #A16C43;
+  border: 1px solid rgba(201, 168, 130, 0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   cursor: default;
 }
 
 .soft-skill-card:hover {
-  border-color: #C9A882;
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(201, 168, 130, 0.4);
-  background: linear-gradient(135deg, rgba(83, 58, 38, 0.9) 0%, rgba(61, 42, 26, 1) 100%);
+  border-color: rgba(201, 168, 130, 0.7);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .soft-skill-icon {
   font-size: 22px;
   filter: drop-shadow(0 0 8px rgba(201, 168, 130, 0.1));
-  
+
 }
 
 .soft-skill-text {
@@ -765,6 +798,18 @@ export default {
   font-weight: 500;
   color: #E8D4C0;
   line-height: 1.4;
+}
+
+.thank-you-text {
+  color: #d4b896;
+}
+
+.github-link {
+  text-decoration: none;
+}
+
+.github-name {
+  color: #87cefa;
 }
 
 .work-preference {
@@ -793,26 +838,27 @@ export default {
 }
 
 .button-projects {
-  background: linear-gradient(135deg, #C9A882 0%, #B88E66 100%);
-  color: #1a1410;
-  border: none;
+  background: linear-gradient(135deg, rgba(201, 168, 130, 0.2) 0%, rgba(201, 168, 130, 0.1) 100%);
+  color: #f5e7d3;
+  border: 1px solid rgba(201, 168, 130, 0.5);
   padding: 15px 30px;
-  border-radius: 8px;
+  border-radius: 999px;
   cursor: pointer;
   margin: 30px 0;
   font-size: 16px;
   font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(201, 168, 130, 0.5);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  box-shadow: 0 8px 24px rgba(201, 168, 130, 0.1);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .button-projects:hover,
 .button-projects:focus {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(201, 168, 130, 0.7);
-  background: linear-gradient(135deg, #D4B896 0%, #C9A882 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(201, 168, 130, 0.18);
+  background: linear-gradient(135deg, rgba(201, 168, 130, 0.24) 0%, rgba(201, 168, 130, 0.14) 100%);
+  border-color: rgba(201, 168, 130, 0.8);
   outline: none;
 }
 
@@ -838,11 +884,21 @@ export default {
 }
 
 /* Responsive */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 @media (max-width: 768px) {
   .cv-container {
-    width: 90vw;
+    width: 94vw;
     padding: 20px;
-    margin: 20px auto;
+    margin: 3vw auto;
   }
 
   .language-switcher {
@@ -880,7 +936,11 @@ export default {
 
 @media (max-width: 480px) {
   .cv-container {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
     padding: 15px;
+    border-radius: 0;
   }
 
   .skill-item {

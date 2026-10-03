@@ -55,6 +55,26 @@ export const projectsData = {
       views: 1,
       languages: ['TypeScript', 'JavaScript', 'PostgreSQL', 'HTML', 'CSS'],
     },
+    {
+      name: 'Qwidgets - Aplicación de ventanas Qt',
+      description:
+        'Aplicación desktop con Qt para crear interfaces gráficas y utilidades de ventanas.',
+      technologies: ['Qt', 'C++', 'Qt Creator', 'QWidgets', 'Desktop App'],
+      link: 'https://github.com/Ledihas/Qwidgets',
+      stars: 4,
+      views: 5,
+      languages: ['C++', 'Qt'],
+    },
+    {
+      name: 'API de distancias de La Habana',
+      description:
+        'Servicio API para consultar distancias entre ubicaciones de La Habana y datos geográficos relacionados.',
+      technologies: ['Python', 'FastAPI', 'API REST', 'PostgreSQL'],
+      link: 'https://github.com/Ledihas/api-distancias-habana',
+      stars: 4,
+      views: 6,
+      languages: ['Python', 'SQL'],
+    },
   ],
   en: [
     {
@@ -111,6 +131,26 @@ export const projectsData = {
       stars: 0,
       views: 1,
       languages: ['TypeScript', 'JavaScript', 'PostgreSQL', 'HTML', 'CSS'],
+    },
+    {
+      name: 'Qwidgets - Qt Windows Application',
+      description:
+        'Desktop application built with Qt for graphical interfaces and window-based utilities.',
+      technologies: ['Qt', 'C++', 'Qt Creator', 'QWidgets', 'Desktop App'],
+      link: 'https://github.com/Ledihas/Qwidgets',
+      stars: 4,
+      views: 5,
+      languages: ['C++', 'Qt'],
+    },
+    {
+      name: 'Havana Distances API',
+      description:
+        'API service to query distances between Havana locations and related geographic information.',
+      technologies: ['Python', 'FastAPI', 'REST API', 'PostgreSQL'],
+      link: 'https://github.com/Ledihas/api-distancias-habana',
+      stars: 4,
+      views: 6,
+      languages: ['Python', 'SQL'],
     },
   ],
 }

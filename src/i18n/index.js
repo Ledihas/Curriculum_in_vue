@@ -114,22 +114,24 @@ const messages = {
     profile: {
       title: 'Profile',
       description:
-        'I am a passionate programmer with experience in Vue, FastAPI, Docker, Django, and more. My journey in this world began in 2019 with C++, and over time I have expanded my skills to cover both frontend and backend development. I love creating efficient solutions, teamwork, and I am always looking to learn new technologies to improve my skills.',
-      lookingFor: 'Currently seeking remote work opportunities and freelance projects.',
+        'I am a passionate programmer with experience in Vue, FastAPI, Docker, Django, n8n, Java and more. My journey in this world began in 2019 with C++, then Java, and over time I have expanded my skills to cover web development, desktop development, low-code and automation, continuously training in areas that interest me or are useful to me. Addicted to creating efficient solutions, teamwork, and always looking to learn new technologies and techniques to improve my skills.',
+      lookingFor: 'I am currently looking for remote job opportunities and freelance projects.',
       thanks: 'Thank you for visiting my resume!',
       github: 'My GitHub:',
     },
     experience: {
       title: 'Experience',
       automation: {
-        title: 'Automation - Personal',
+        title: 'Automations - Personal and Clients',
         date: 'Recent',
         items: [
-          'Workflows in n8n',
+          'n8n workflows',
           'WhatsApp integration with Evolution API',
-          'GPT model integration',
+          'AI model integration',
           'Postgres database management',
           'CRM',
+          'Catwoot integration',
+          'Bots',
         ],
       },
       backend: {
@@ -144,19 +146,20 @@ const messages = {
       },
       frontend: {
         title: 'Front-end Developer - Company',
-        date: 'Current',
+        date: '2025 - 2026',
         items: [
           'Front-end development with Qt',
-          'Video editing application',
-          'In development...',
+          'Video and image editing application',
+          'Qt Quick application',
+          'Integration of ML model into Qt UI',
         ],
       },
     },
     education: {
       title: 'Education',
       degree: 'Computer Science Engineering',
-      institution: 'University of Computer Sciences',
-      period: '2021 - present',
+      institution: 'University of Computer Science',
+      period: '2022 - 2026',
     },
     skills: {
       title: 'Technical Skills',
@@ -172,7 +175,7 @@ const messages = {
       teamwork: 'Teamwork',
       communication: 'Effective Communication',
       timeManagement: 'Time Management',
-      adaptability: 'Adaptability',
+      adaptability: 'Adaptability to the environment',
       problemSolving: 'Problem Solving',
       continuousLearning: 'Continuous Learning',
     },
@@ -185,7 +188,7 @@ const messages = {
     },
     projects: {
       title: 'Projects',
-      viewProjects: 'View  Some Projects',
+      viewProjects: 'View some projects',
       backToCV: 'Back to CV',
       viewProject: 'View project',
       technologies: 'Technologies:',
@@ -193,7 +196,7 @@ const messages = {
       someProjects: 'Some Projects',
     },
     footer: {
-      rights: '© 2025 Ledihas',
+      rights: '© 2026 Ledihas',
     },
   },
 }
